@@ -1,4 +1,4 @@
-# **ProtoBlocks** ![ProtoBlocks](Assets/AltX/ui/icon_64.png) Building-Block Sandbox
+# **ProtoBlocks** ![ProtoBlocks](icon.png) Block-Building Sandbox
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/altered-existence/ProtoBlocks)
 ![WIP](https://camo.githubusercontent.com/96997bf4724da51b7b3bd96d341a0c1efb2b38ab/68747470733a2f2f756e706b672e636f6d2f76767769702f5749502e737667)
@@ -44,20 +44,3 @@
 ### Required:
 - **RTS Camera** - [Github](https://github.com/altered-existence/RTS_Camera)
   - Forked from: [https://github.com/densylkin/RTS_Camera](https://github.com/densylkin/RTS_Camera)
-
-
-- **XInputDotNet** - ([Github](https://github.com/altered-existence/XInputDotNet)) - ([Download](https://github.com/altered-existence/XInputDotNet/releases/latest))
-   - Forked from: [https://github.com/speps/XInputDotNet](https://github.com/speps/XInputDotNet)
-
-
-### Github Packages
-- **Github for Unity** - ([Github](https://github.com/github-for-unity/Unity)) - ([Download](https://github.com/github-for-unity/Unity/releases/latest)) - ([Asset Store](https://assetstore.unity.com/packages/tools/version-control/github-for-unity-118069))
-  - Github Support for Unity Editor
-
-
-
-
-
-### Experimental:
-  - **SpotifyAPI-NET** - ([Github](https://github.com/JohnnyCrazy/SpotifyAPI-NET)) - ([Download](https://github.com/JohnnyCrazy/SpotifyAPI-NET/archive/3.1.1.zip))
-   - Spotify API for .NET Framework (TBD)
