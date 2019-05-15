@@ -1,5 +1,6 @@
 ﻿using PCPi.scripts.Managers;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 namespace AltX.Managers
 {
@@ -25,6 +26,17 @@ namespace AltX.Managers
             //    PaintedMaterial = PaintManager.GetBlockPaintMaterial();
             //    gameObject.GetComponent<Renderer>().material = PaintedMaterial;
             //    defaultMaterial = PaintedMaterial;
+            //}
+            //if (GameManager.GetIsEditMode())
+            //{
+            //    if (!isBaseBlock)
+            //    {
+            //        BlockSpawnManager.BlockDestruct(gameObject);
+            //    }
+            //    else
+            //    {
+            //        return;
+            //    }
             //}
         }
         /// <summary>

@@ -2275,7 +2275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -4434,7 +4434,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7410,11 +7410,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MobileDoubleStickControl
       objectReference: {fileID: 0}
-    - target: {fileID: 4553174506589211947, guid: 68e922b04924ee94e8cde89785b385be,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4553174506575300491, guid: 68e922b04924ee94e8cde89785b385be,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7519,26 +7514,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4553174506575300491, guid: 68e922b04924ee94e8cde89785b385be,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4553174506575300491, guid: 68e922b04924ee94e8cde89785b385be,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4553174506575300491, guid: 68e922b04924ee94e8cde89785b385be,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4553174506575269611, guid: 68e922b04924ee94e8cde89785b385be,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68e922b04924ee94e8cde89785b385be, type: 3}
@@ -7561,7 +7536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 2169821f0567671499a5c10104c69c24, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22400000, guid: 2169821f0567671499a5c10104c69c24, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7647,17 +7622,25 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: 2169821f0567671499a5c10104c69c24, type: 3}
-      propertyPath: m_IsActive
+    - target: {fileID: 11400002, guid: 2169821f0567671499a5c10104c69c24, type: 3}
+      propertyPath: m_BlockingMask.m_Bits
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 22300000, guid: 2169821f0567671499a5c10104c69c24, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 2169821f0567671499a5c10104c69c24, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 11400012, guid: 2169821f0567671499a5c10104c69c24, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 2169821f0567671499a5c10104c69c24, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 11400016, guid: 2169821f0567671499a5c10104c69c24, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400022, guid: 2169821f0567671499a5c10104c69c24, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2169821f0567671499a5c10104c69c24, type: 3}

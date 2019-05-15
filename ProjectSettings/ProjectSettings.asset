@@ -159,7 +159,7 @@ PlayerSettings:
     Standalone: com.AlteredExistence.ProtoBlocks
   buildNumber: {}
   AndroidBundleVersionCode: 1
-  AndroidMinSdkVersion: 21
+  AndroidMinSdkVersion: 22
   AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 1
   aotOptions: 
