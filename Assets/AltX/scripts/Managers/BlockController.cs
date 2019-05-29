@@ -1,5 +1,6 @@
 ﻿using PCPi.scripts.Managers;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 namespace AltX.Managers
 {
@@ -26,14 +27,25 @@ namespace AltX.Managers
             //    gameObject.GetComponent<Renderer>().material = PaintedMaterial;
             //    defaultMaterial = PaintedMaterial;
             //}
+            //if (GameManager.GetIsEditMode())
+            //{
+            //    if (!isBaseBlock)
+            //    {
+            //        BlockSpawnManager.BlockDestruct(gameObject);
+            //    }
+            //    else
+            //    {
+            //        return;
+            //    }
+            //}
         }
         /// <summary>
         /// Activates highlighter material & assigns block to spawn
         /// </summary>
         private void OnMouseEnter()
         {
-            BlockToSpawn = BlockManager.GetSelectedBlock();
-            gameObject.GetComponent<Renderer>().material = highlightMaterial;
+            //BlockToSpawn = BlockManager.GetSelectedBlock();
+            //gameObject.GetComponent<Renderer>().material = highlightMaterial;
 
         }
         /// <summary>
@@ -41,7 +53,7 @@ namespace AltX.Managers
         /// </summary>
         private void OnMouseExit()
         {
-            gameObject.GetComponent<Renderer>().material = defaultMaterial;
+            //gameObject.GetComponent<Renderer>().material = defaultMaterial;
         }
         public bool GetBaseValue()
         {

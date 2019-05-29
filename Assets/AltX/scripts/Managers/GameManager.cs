@@ -6,9 +6,19 @@ namespace AltX.Managers
 {
     public class GameManager : MonoBehaviour
     {
-        //UIManager uiManager;
         private static bool isBuildMode;
         private static bool isPaintMode;
+        private static bool isEditMode;
+
+        public static bool GetIsEditMode()
+        {
+            return isEditMode;
+        }
+
+        public void SetIsEditMode(bool value)
+        {
+            isEditMode = value;
+        }
 
         public static bool GetIsBuildMode()
         {
@@ -33,10 +43,7 @@ namespace AltX.Managers
         {
             isBuildMode = true;
             isPaintMode = false;
-        }
-        private void LateUpdate()
-        {
-            //SelectionManager.Update();
+            isEditMode = false;
         }
     }
 }
