@@ -95,7 +95,6 @@ namespace PCPi.scripts
                 material = material,
                 highlightMaterial = highlightMaterial
             };
-            //BlockDatabase.CreateBlockTable();
             BlockDatabase.AddBlockToDatabase(
                 obj,
                 length,
@@ -107,7 +106,6 @@ namespace PCPi.scripts
             // Add new block to List
             AddBlockToList(b);
             AGameObjects = ListBlocks().ToArray();
-            //BlockDatabase.DebugBlockList();
         }
 
         

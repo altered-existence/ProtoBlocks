@@ -17,13 +17,13 @@ namespace PCPi.scripts.Managers
         #region /// Properties
         private static GameObject selectedBlock;
         
-        private GameObject baseBlock;
+        private static GameObject baseBlock;
         public static GameObject SelectedBlock { get => selectedBlock; set => selectedBlock = value; }
-        public GameObject BaseBlock { get => baseBlock; set => baseBlock = value; }
+        public static GameObject BaseBlock { get => baseBlock; set => baseBlock = value; }
         #endregion
 
         #region /// Property Methods
-        public GameObject GetBaseBlock()
+        public static GameObject GetBaseBlock()
         {
             return BaseBlock;
         }
