@@ -1,26 +1,25 @@
 fileFormatVersion: 2
-guid: 46cf283a248ad4e4d9b7322e5223ff93
+guid: 5d7ce6b2f5936ed42b4891f19767b713
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: peg
-    100004: surface
+    100002: body
+    100004: peg
     400000: //RootNode
-    400002: peg
-    400004: surface
+    400002: body
+    400004: peg
     2100000: block
     2100002: peg
     2300000: //RootNode
-    2300002: peg
-    2300004: surface
+    2300002: body
+    2300004: peg
     3300000: //RootNode
-    3300002: peg
-    3300004: surface
-    4300000: BLOCK_1x1x1
-    4300002: surface
+    3300002: body
+    3300004: peg
+    4300000: surface
+    4300002: body
     4300004: peg
-    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
