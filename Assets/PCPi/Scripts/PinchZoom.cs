@@ -40,8 +40,8 @@ public class PinchZoom : MonoBehaviour
                 // Otherwise change the field of view based on the change in distance between the touches.
                 RTSCamera.fieldOfView += deltaMagnitudeDiff * perspectiveZoomSpeed;
 
-                // Clamp the field of view to make sure it's between 0 and 100.
-                RTSCamera.fieldOfView = Mathf.Clamp(RTSCamera.fieldOfView, 0.1f, 99.9f);
+                // Clamp the field of view to make sure it's between 30 and 100.
+                RTSCamera.fieldOfView = Mathf.Clamp(RTSCamera.fieldOfView, 30.1f, 99.9f);
             }
         }
     }

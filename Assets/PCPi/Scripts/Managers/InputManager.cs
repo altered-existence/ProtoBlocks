@@ -17,9 +17,10 @@ namespace PCPi.scripts.Managers
         public static bool rightClick;
         [SerializeField]
         public static bool middleClick;
-
+        public static Touch[] touches;
         public void Update()
         {
+            
             //h = CrossPlatformInputManager.GetAxisRaw("Horizontal");
             //v = CrossPlatformInputManager.GetAxisRaw("Vertical");
             //pos = CrossPlatformInputManager.mousePosition;

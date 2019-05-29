@@ -17,24 +17,24 @@ namespace PCPi.scripts.Managers
 {
     public class SelectionManager : GameManager
     {
-        //private InputManager inputManager;
         private List<GameObject> objsList = new List<GameObject>();
         float timerSeconds = 3f;
 
-        private GameObject[] objs = new GameObject[25];
+        private GameObject[] objs = new GameObject[50];
 
-        private void Start()
-        {
-            //inputManager = gameObject.GetComponent<InputManager>();
-        }
-        
+        public List<GameObject> ObjsList { get => objsList; set => objsList = value; }
+
         public void Update()
+        {
+            InitiateSelection();
+        }
+
+        private void InitiateSelection()
         {
             BlockController blockController;
             GameObject obj;
             bool isBase;
             Vector3 mouseScreen = CrossPlatformInputManager.mousePosition;
-            mouseScreen.z = 0.5f;
             Vector3 rayOrigin = Camera.main.ScreenToWorldPoint(mouseScreen);
             Vector3 rayDirection = Camera.main.transform.TransformDirection(Vector3.forward);
 
@@ -43,82 +43,108 @@ namespace PCPi.scripts.Managers
             if (Physics.Raycast(ray, out RaycastHit hit, 100f))
             {
                 obj = hit.collider.gameObject;
-                objs[0] = obj;
                 blockController = obj.GetComponent<BlockController>();
                 isBase = blockController.GetBaseValue();
-                blockController.BlockToSpawn = BlockManager.GetSelectedBlock();
 
-                if (hit.collider.gameObject != objs[objs.Length - 1])
+                if (hit.collider.tag == "target")
                 {
-                    //Debug.DrawRay(rayOrigin, rayDirection, Color.red);
-                    blockController.BlockToSpawn = BlockManager.GetSelectedBlock();
-                    obj.GetComponent<Renderer>().material = blockController.highlightMaterial;
-                    objsList.Add(obj);
+                    blockController.BlockToSpawn = BlockManager.GetBaseBlock();
                 }
                 else
                 {
-                    StartCoroutine(Timer(blockController));
+                    blockController.BlockToSpawn = BlockManager.GetSelectedBlock();
+                }
+                if (hit.collider.gameObject)
+                {
+                    Debug.DrawRay(rayOrigin, rayDirection, Color.red);
+                    obj.GetComponent<Renderer>().material = blockController.highlightMaterial;
+                    ObjsList.Add(obj);
                 }
                 if (CrossPlatformInputManager.GetButton("Fire1") && hit.collider != null)
                 {
-                    if (GetIsBuildMode())
-                    {
-                        BlockSpawnManager.PlaceSelectedBlock(blockController.BlockToSpawn, blockController.transform.position, blockController.transform);
-                    }
-                    if (GetIsPaintMode())
-                    {
-                        blockController.PaintedMaterial = PaintManager.GetBlockPaintMaterial();
-                        blockController.gameObject.GetComponent<Renderer>().material = blockController.PaintedMaterial;
-                        blockController.defaultMaterial = blockController.PaintedMaterial;
-                    }
-                    if (GetIsEditMode())
-                    {
-                        if (!isBase)
-                        {
-                            BlockSpawnManager.BlockDestruct(hit.collider.gameObject);
-                        }
-                        else
-                        {
-                            return;
-                        }
-                    }
+                    PerformModeAction(blockController, isBase, hit);
                 }
             }
         }
 
+        private static void PerformModeAction(BlockController blockController, bool isBase, RaycastHit hit)
+        {
+            if (GetIsBuildMode())
+            {
+                PlaceBlock(blockController);
+            }
+            if (GetIsPaintMode())
+            {
+                PaintActiveBlock(blockController);
+            }
+            if (GetIsEditMode())
+            {
+                DestroyActiveBlock(hit, isBase);
+            }
+        }
+
+        private static void DestroyActiveBlock(RaycastHit hit, bool isBase)
+        {
+            if (!isBase)
+            {
+                if (hit.collider.tag != "target")
+                {
+                    BlockSpawnManager.BlockDestruct(hit.collider.gameObject);
+                }
+            }
+        }
+
+        private static void PlaceBlock(BlockController blockController)
+        {
+            BlockSpawnManager.PlaceSelectedBlock(blockController.BlockToSpawn, blockController.transform.position, blockController.transform);
+        }
+
+        private static void PaintActiveBlock(BlockController blockController)
+        {
+            blockController.PaintedMaterial = PaintManager.GetBlockPaintMaterial();
+            blockController.gameObject.GetComponent<Renderer>().material = blockController.PaintedMaterial;
+            blockController.defaultMaterial = blockController.PaintedMaterial;
+        }
+
         private void LateUpdate()
         {
-            //Vector3 touchPosition;
-
-            //for (int i = 0; i < Input.touchCount; i++)
-            //{
-            //    touchPosition = Camera.main.ScreenToWorldPoint(Input.touches[i].position);
-            //}
+            StartCoroutine(Timer());
         }
-        public IEnumerator Timer(BlockController blockController)
+        public IEnumerator Timer()
         {
             this.timerSeconds -= Time.deltaTime;
 
             if (this.timerSeconds > 0)
             {
-                SetDefaultMaterial(blockController);
                 yield return timerSeconds;
             }
-            yield return null;
-        }
-        private void SetDefaultMaterial(BlockController blockController)
-        {
-            objs = GetObjs().ToArray();
-            //Debug.DrawRay(rayOrigin, rayDirection, Color.yellow);
-            for (int i = 0; i > objs.Length - 1; i--)
+            else
             {
-                objs[i].GetComponent<Renderer>().material = blockController.defaultMaterial;
+                SetDefaultMaterial();
+                timerSeconds = 1f;
+                yield return null;
             }
-            objsList.Clear();
+        }
+        private void SetDefaultMaterial()
+        {
+            BlockController blockController;
+            /// Ensure all highlighted objects in list are in array for default setting to happen
+            objs = GetObjs().ToArray();
+            /// Iterate through all highlighted objects
+            for (int i = 0; i < objs.Length - 1; i++)
+            {
+                if (objs[i] != null)
+                {
+                    blockController = objs[i].GetComponent<BlockController>();
+                    objs[i].GetComponent<Renderer>().material = blockController.defaultMaterial;
+                }
+            }
+            /// Clear list to reset action
+            ObjsList.Clear();
         }
         public List<GameObject> GetObjs()
         {
-            return objsList;
+            return ObjsList;
         }
 
     }

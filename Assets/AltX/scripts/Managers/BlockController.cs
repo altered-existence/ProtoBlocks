@@ -44,8 +44,8 @@ namespace AltX.Managers
         /// </summary>
         private void OnMouseEnter()
         {
-            BlockToSpawn = BlockManager.GetSelectedBlock();
-            gameObject.GetComponent<Renderer>().material = highlightMaterial;
+            //BlockToSpawn = BlockManager.GetSelectedBlock();
+            //gameObject.GetComponent<Renderer>().material = highlightMaterial;
 
         }
         /// <summary>
@@ -53,7 +53,7 @@ namespace AltX.Managers
         /// </summary>
         private void OnMouseExit()
         {
-            gameObject.GetComponent<Renderer>().material = defaultMaterial;
+            //gameObject.GetComponent<Renderer>().material = defaultMaterial;
         }
         public bool GetBaseValue()
         {
