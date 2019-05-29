@@ -1,5 +1,6 @@
 ﻿using PCPi.scripts.Managers;
 using UnityEngine;
+using UnityStandardAssets.CrossPlatformInput;
 
 namespace AltX.Managers
 {
@@ -10,45 +11,50 @@ namespace AltX.Managers
     {
         public static bool isBaseBlock;
         public float offset;
-        public GameObject parent;
-
-        public GameObject blockCanvas;
-
         private void Awake()
         {
-            parent = gameObject.GetComponentInParent<Collider>().gameObject;
             isBaseBlock = GetBaseValue();
             blockCanvas.SetActive(false);
         }
         private void OnMouseDown()
         {
-            if (GameManager.GetIsBuildMode())
-            {
-                BlockSpawnManager.PlaceSelectedBlock(BlockToSpawn, transform.position, transform);
-            }
-            if (GameManager.GetIsPaintMode())
-            {
-                PaintedMaterial = PaintManager.GetBlockPaintMaterial();
-                gameObject.GetComponent<Renderer>().material = PaintedMaterial;
-                defaultMaterial = PaintedMaterial;
-            }
+            //if (GameManager.GetIsBuildMode())
+            //{
+            //    BlockSpawnManager.PlaceSelectedBlock(BlockToSpawn, transform.position, transform);
+            //}
+            //if (GameManager.GetIsPaintMode())
+            //{
+            //    PaintedMaterial = PaintManager.GetBlockPaintMaterial();
+            //    gameObject.GetComponent<Renderer>().material = PaintedMaterial;
+            //    defaultMaterial = PaintedMaterial;
+            //}
+            //if (GameManager.GetIsEditMode())
+            //{
+            //    if (!isBaseBlock)
+            //    {
+            //        BlockSpawnManager.BlockDestruct(gameObject);
+            //    }
+            //    else
+            //    {
+            //        return;
+            //    }
+            //}
         }
         /// <summary>
         /// Activates highlighter material & assigns block to spawn
         /// </summary>
         private void OnMouseEnter()
         {
-            BlockToSpawn = BlockManager.GetSelectedBlock();
-            gameObject.GetComponent<Renderer>().material = highlightMaterial;
-            blockCanvas.SetActive(true);
+            //BlockToSpawn = BlockManager.GetSelectedBlock();
+            //gameObject.GetComponent<Renderer>().material = highlightMaterial;
+
         }
         /// <summary>
         /// Deactivates highlighter material
         /// </summary>
         private void OnMouseExit()
         {
-            gameObject.GetComponent<Renderer>().material = defaultMaterial;
-            blockCanvas.SetActive(false);
+            //gameObject.GetComponent<Renderer>().material = defaultMaterial;
         }
         public bool GetBaseValue()
         {

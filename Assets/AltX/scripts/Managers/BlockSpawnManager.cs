@@ -30,10 +30,14 @@ namespace AltX.Managers
         {
             if (blockToSpawn != null)
             {
-                Transform b = Instantiate<GameObject>(blockToSpawn, pos, blockToSpawn.transform.rotation, parent).transform;
-                b.transform.position = pos + new Vector3(0f, 2f, 0f);
-                b.localScale = new Vector3(0.01f, 0.01f, 0.01f);
-                spawnList.Add(b.gameObject);
+                /// Ensure only one block is placed on each other block
+                if(parent.childCount < 1)
+                {
+                    Transform b = Instantiate<GameObject>(blockToSpawn, pos, blockToSpawn.transform.rotation, parent).transform;
+                    b.transform.position = pos + new Vector3(0f, 2f, 0f);
+                    b.localScale = new Vector3(0.01f, 0.01f, 0.01f);
+                    spawnList.Add(b.gameObject);
+                }
             }
             SpawnPool = spawnList.ToArray();
         }

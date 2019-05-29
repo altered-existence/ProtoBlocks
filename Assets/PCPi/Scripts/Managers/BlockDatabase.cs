@@ -25,10 +25,15 @@ namespace PCPi.scripts
         }
         /// <summary>
         /// Alters table by adding a new column if it doesn't exist
+        /// i.e. AddColumnToTable("TBlocks", "index", "TEXT", "");
         /// </summary>
-        public static void AddColumnToTable(string columnToAdd, string type, string defaultValue)
+        /// <param name="tblName"></param>
+        /// <param name="columnToAdd"></param>
+        /// <param name="type"></param>
+        /// <param name="defaultValue"></param>
+        public static void AddColumnToTable(string tblName, string columnToAdd, string type, string defaultValue)
         {
-            string cmdAlterTable = "ALTER TABLE TBlocks ADD " + columnToAdd +" " + type + " DEFAULT " + defaultValue + " NOT NULL";
+            string cmdAlterTable = "ALTER TABLE " + tblName + " ADD " + columnToAdd +" " + type + " DEFAULT " + defaultValue + " NOT NULL";
 
             RunDatabaseCommand(cmdAlterTable);
         }
@@ -84,6 +89,10 @@ namespace PCPi.scripts
 
             RunDatabaseCommand(cmdAdd);
         }
+        /// <summary>
+        /// Retrieves table row where the index = param
+        /// </summary>
+        /// <param name="index"></param>
         public static void GetBlock(int index)
         {
             string sqlQuery = "select * from TBlocks where [index = " + index + "]";

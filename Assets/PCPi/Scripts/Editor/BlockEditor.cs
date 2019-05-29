@@ -154,12 +154,18 @@ namespace PCPi.scripts.Editor
                 width = EditorGUILayout.IntField("Width of Block", width);
                 height = EditorGUILayout.IntField("Height of Block", height);
                 offsetFactor = EditorGUILayout.FloatField("Amount to offset Block", offsetFactor);
-                GUILayout.Label("ProtoBlock", EditorStyles.centeredGreyMiniLabel);
-                obj = EditorGUILayout.ObjectField(obj, typeof(GameObject), true);
-                GUILayout.Label("Main Material", EditorStyles.centeredGreyMiniLabel);
-                material = EditorGUILayout.ObjectField(material, typeof(Material), true) as Material;
+                using (new HorizontalBlock())
+                {
+                    GUILayout.Label("ProtoBlock", EditorStyles.centeredGreyMiniLabel, GUILayout.Width(170f));
+                    obj = EditorGUILayout.ObjectField(obj, typeof(GameObject), true);
+                }
+                using (new HorizontalBlock())
+                {
+                    GUILayout.Label("Main Material", EditorStyles.centeredGreyMiniLabel, GUILayout.Width(170f));
+                    material = EditorGUILayout.ObjectField(material, typeof(Material), true) as Material;
+                }
 
-                GUILayout.Label("Highlighter?", EditorStyles.miniBoldLabel);
+                GUILayout.Label("Highlighter?", EditorStyles.miniBoldLabel, GUILayout.Width(170f));
                 if (GUILayout.Toggle(isHighlightable, GUIContent.none))
                 {
                     isHighlightable = true;
@@ -170,16 +176,18 @@ namespace PCPi.scripts.Editor
                     highlightMaterial = material;
                     isHighlightable = false;
                 }
-                GUILayout.Label("Make it a BASE Block?", EditorStyles.miniBoldLabel);
-                if (GUILayout.Toggle(isBase, GUIContent.none))
+                using (new HorizontalBlock())
                 {
-                    isBase = true;
+                    GUILayout.Label("Make it a BASE Block?", EditorStyles.miniBoldLabel, GUILayout.Width(170f));
+                    if (GUILayout.Toggle(isBase, GUIContent.none))
+                    {
+                        isBase = true;
+                    }
+                    else
+                    {
+                        isBase = false;
+                    }
                 }
-                else
-                {
-                    isBase = false;
-                }
-
             }
         }
         /// <summary>
@@ -216,8 +224,11 @@ namespace PCPi.scripts.Editor
         /// </summary>
         private void GetHighlighterMaterial()
         {
-            GUILayout.Label("Selected Material", EditorStyles.centeredGreyMiniLabel);
-            highlightMaterial = EditorGUILayout.ObjectField(highlightMaterial, typeof(Material), true) as Material;
+            using (new HorizontalBlock())
+            {
+                GUILayout.Label("Selected Material", EditorStyles.centeredGreyMiniLabel, GUILayout.Width(170f));
+                highlightMaterial = EditorGUILayout.ObjectField(highlightMaterial, typeof(Material), true) as Material;
+            }
         }
         /// <summary>
         /// Assign highlight material to current _protoblock to be created
