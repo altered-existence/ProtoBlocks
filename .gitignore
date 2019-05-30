@@ -6,11 +6,16 @@
 [Ll]ogs/
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
-# [Aa]ssets/AssetStoreTools*
+[Aa]ssets/AssetStoreTools*
+
+# Topher List
 Assets/Plugins/RTS_Camera
+Assets/Plugins/RTS-Camera
+Assets/Standard*
 Assets/Plugins/GitHub
 Assets/Plugins/AltX-ColorPicker
-Assets/AltX/textures/texturelib.com
+Assets/ThirdParty/texturelib.com
+Assets/ThirdParty/*
 
 # Visual Studio cache directory
 .vs/

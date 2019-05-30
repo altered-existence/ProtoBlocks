@@ -44,3 +44,8 @@
 ### Required:
 - **RTS Camera** - [Github](https://github.com/altered-existence/RTS_Camera)
   - Forked from: [https://github.com/densylkin/RTS_Camera](https://github.com/densylkin/RTS_Camera)
+
+
+## Third-Party Resources:
+- [TextureLib.com](http://texturelib.com/)
+- [seamless_cartoon_styled_water_texture_by_berserkitty_dcatyft](https://www.deviantart.com/berserkitty/art/Seamless-Cartoon-styled-Water-Texture-743787929) - [BerserKitty](https://www.deviantart.com/berserkitty)
