@@ -10,10 +10,14 @@
 Assets/Plugins/RTS_Camera
 Assets/Plugins/GitHub
 Assets/Plugins/AltX-ColorPicker
-Assets/AltX/textures/texturelib.com
-Assets/Standard Assets
-Assets/SampleScenes
 
+Assets/AltX/textures/texturelib.com
+
+Assets/Samples
+Assets/SampleScenes
+Assets/Standard Assets
+Assets/Universal Sound FX
+Packages
 # Visual Studio cache directory
 .vs/
 
