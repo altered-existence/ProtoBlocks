@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/PCPi/Scenes/backup.unity
     guid: 0e0043194b8f7474688eb1dac4efe3e5
+  - enabled: 1
+    path: Assets/AltX/scenes/MainScene.unity
+    guid: ad1d7fba7f617f247aeec2e8284a7bd3
   m_configObjects: {}
